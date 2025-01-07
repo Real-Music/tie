@@ -24,4 +24,5 @@ function HomePage() {
   );
 }
 
+export const Component = HomePage;
 export default HomePage;

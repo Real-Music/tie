@@ -45,4 +45,5 @@ const DailyPrayer: React.FC = () => {
   );
 };
 
+export const Component = DailyPrayer;
 export default DailyPrayer;
