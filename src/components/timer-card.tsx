@@ -30,7 +30,7 @@ function TimerCard() {
   };
 
   const handleStop = () => {
-    if (Math.floor(time / 60) <= 15)
+    if (Math.floor(time / 60) < 15)
       return alert("You have to pray for at least 15 minutes.");
 
     releaseWakeLock();

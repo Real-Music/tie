@@ -4,8 +4,9 @@ import TimerCard from "@/components/timer-card";
 import { Avatar } from "@/components/ui/avatar";
 import useAppStore from "@/store";
 import useTimerStore from "@/stores/timer-store";
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import partner from "@/assets/partner.jpeg";
 
 const DailyPrayer: React.FC = () => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const DailyPrayer: React.FC = () => {
       <TimerCard />
       {isRunning && <MediaPlayer />}
       <PrayerHistory />
+      <Image mt={4} src={partner} alt="partner" />
     </Box>
   );
 };
