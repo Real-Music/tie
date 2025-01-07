@@ -12,7 +12,7 @@ const useTimerStore = create<TimerState>((set) => ({
 	time: 0,
 	isRunning: false,
 	startTimer: () => set({ isRunning: true }),
-	stopTimer: () => set({ isRunning: false, time: 0 }),
+	stopTimer: () => set({ isRunning: false }),
 	resetTimer: () => set({ time: 0, isRunning: false }),
 }));
 

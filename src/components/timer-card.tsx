@@ -19,6 +19,7 @@ function TimerCard() {
   const timeInMinute = Math.floor(time / 60);
 
   const handleStart = () => {
+    resetTimer();
     startTimer();
     requestWakeLock();
   };
@@ -114,13 +115,13 @@ function TimerCard() {
         </ProgressRoot>
 
         {time > 0 && !isRunning && (
-          <Text textAlign="center" fontSize="sm">
+          <Text mt={2} color="gray.500" textAlign="center" fontSize="sm">
             Congratulation! You’ve prayed for {timeInMinute} minutes.
           </Text>
         )}
 
         {time > 0 && isRunning && (
-          <Text textAlign="center" fontSize="sm">
+          <Text mt={2} color="gray.500" textAlign="center" fontSize="sm">
             You’ve been praying for {timeInMinute} minutes now.
           </Text>
         )}

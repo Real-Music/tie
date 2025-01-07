@@ -9,8 +9,15 @@ import { useNavigate } from "react-router-dom";
 
 const DailyPrayer: React.FC = () => {
   const navigate = useNavigate();
-  const { isRunning } = useTimerStore();
+  const { isRunning, time } = useTimerStore();
   const { profileImg, name } = useAppStore();
+
+  const getTitle = () => {
+    let title = " Prayer Cloud";
+    if (isRunning) title = " is sailing 🗣️🗣️";
+    else if (time > 0) title = " is done sailing 🥳🥳";
+    return name + title;
+  };
 
   return (
     <Box p={5} maxW="600px" mx="auto">
@@ -27,13 +34,13 @@ const DailyPrayer: React.FC = () => {
           fontWeight="bold"
           textAlign="center"
         >
-          {name} Prayer Cloud
+          {getTitle()}
         </Text>
       </Stack>
 
       <TimerCard />
       {isRunning && <MediaPlayer />}
-      {!isRunning && <PrayerHistory />}
+      <PrayerHistory />
     </Box>
   );
 };

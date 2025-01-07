@@ -7,9 +7,9 @@ function PrayerHistory() {
 
   return (
     <Box>
-      <Text textAlign="center" fontWeight="bold" mb={3}>
+      {/* <Text textAlign="center" fontWeight="bold" mb={3}>
         Prayer History
-      </Text>
+      </Text> */}
 
       <Table.Root size="sm" striped>
         <Table.Header>

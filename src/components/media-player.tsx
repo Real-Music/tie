@@ -1,7 +1,7 @@
 import trackOne from "@/assets/audios/track-one.mp3";
 import trackThree from "@/assets/audios/track-three.mp3";
 import trackTwo from "@/assets/audios/track-two.mp3";
-import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton } from "@chakra-ui/react";
 import { memo, useState } from "react";
 import Howler from "react-howler";
 import {
@@ -21,12 +21,12 @@ function MediaPlayer() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [playlist] = useState([trackOne, trackTwo, trackThree]);
 
-  const getSongName = () => {
-    const track = playlist[currentSongIndex].split("/")[4];
-    if (track.includes("one")) return "Track 1";
-    if (track.includes("two")) return "Track 2";
-    return "Track 3";
-  };
+  // const getSongName = () => {
+  //   const track = playlist[currentSongIndex].split("/")[4];
+  //   if (track.includes("one")) return "Track 1";
+  //   if (track.includes("two")) return "Track 2";
+  //   return "Track 3";
+  // };
 
   const handleNextSong = () => {
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % playlist.length);
@@ -41,10 +41,10 @@ function MediaPlayer() {
   };
 
   return (
-    <Box mt={5} textAlign="center">
-      <Text fontWeight="bold" mb={2}>
+    <Box mt={5} mb={4} textAlign="center">
+      {/* <Text fontWeight="bold" mb={2}>
         Now Playing: {getSongName()}
-      </Text>
+      </Text> */}
       <Howler
         loop={true}
         volume={volume}
@@ -52,18 +52,20 @@ function MediaPlayer() {
         onEnd={handleNextSong}
         src={playlist[currentSongIndex]}
       />
-      <HStack justify="center" gap={4} flexWrap="wrap">
-        <IconButton variant="outline" size="sm" onClick={handlePreviousSong}>
-          <IoPlaySkipBackSharp />
-        </IconButton>
+      <HStack justify="space-between" gap={4} flexWrap="wrap">
+        <HStack justify="center" gap={4}>
+          <IconButton variant="outline" size="sm" onClick={handlePreviousSong}>
+            <IoPlaySkipBackSharp />
+          </IconButton>
 
-        <IconButton variant="outline" size="sm" onClick={onTogglePlayPause}>
-          {isPlaying ? <IoPause /> : <IoPlayOutline />}
-        </IconButton>
+          <IconButton variant="outline" size="sm" onClick={onTogglePlayPause}>
+            {isPlaying ? <IoPause /> : <IoPlayOutline />}
+          </IconButton>
 
-        <IconButton variant="outline" size="sm" onClick={handleNextSong}>
-          <IoPlaySkipForwardSharp />
-        </IconButton>
+          <IconButton variant="outline" size="sm" onClick={handleNextSong}>
+            <IoPlaySkipForwardSharp />
+          </IconButton>
+        </HStack>
 
         <HStack justify="center" gap={4}>
           <IconButton variant="outline" size="sm">
