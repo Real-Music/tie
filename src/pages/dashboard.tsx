@@ -38,10 +38,10 @@ function Dashboard() {
 
   return (
     <Center>
-      <Flex mt="5%" flexDir="column" minW="70%" gap={4}>
+      <Flex p={4} mt="5%" flexDir="column" minW="70%" gap={4}>
         <Heading>Backend Portal</Heading>
-        <HStack gap={4}>
-          <Card.Root>
+        <HStack gap={4} flexDir={{ base: "column", md: "row" }}>
+          <Card.Root w={{ base: "100%", md: "fit-content" }}>
             <Card.Body>
               <StatRoot>
                 <StatLabel info="The total number of people who have registered so far">
@@ -52,7 +52,7 @@ function Dashboard() {
             </Card.Body>
           </Card.Root>
 
-          <Card.Root>
+          <Card.Root w={{ base: "100%", md: "fit-content" }}>
             <Card.Body>
               <StatRoot>
                 <StatLabel info="The total number of unique senior cell">

@@ -42,11 +42,12 @@ function AppTable<T, Q extends Query = Query>(props: Props<T, Q>) {
         )}
       </Box>
 
-      <Table.Root size="sm" striped>
-        <TableHead columns={props.columns} />
-        <TableBody {...props} />
-      </Table.Root>
-
+      <Table.ScrollArea>
+        <Table.Root size="sm" striped stickyHeader>
+          <TableHead columns={props.columns} />
+          <TableBody {...props} />
+        </Table.Root>
+      </Table.ScrollArea>
       <Pagination {...props} />
     </>
   );
