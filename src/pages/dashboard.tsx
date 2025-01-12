@@ -19,6 +19,7 @@ import { StatLabel, StatRoot, StatValueText } from "@/components/ui/stat";
 const columns: TableColumnsProps[] = [
   { key: "title", name: "Title", type: "string" },
   { key: "full_name", name: "Full Name", type: "string" },
+  { key: "phone_number", name: "Phone", type: "string" },
   { key: "fellowship", name: "Fellowship", type: "string" },
   { key: "senior_cell", name: "Senior Cell", type: "string" },
   { key: "created_on", name: "Date Registered", type: "date" },

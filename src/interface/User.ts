@@ -12,6 +12,7 @@ export interface Option {
 export interface NewUserForm {
 	title: Option | null;
 	full_name: string;
+	phone_number: string;
 	fellowship: Option | null;
 	senior_cell: Option | null;
 }

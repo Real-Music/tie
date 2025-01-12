@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const axiosInstance = axios.create({
+  // baseURL: "http://localhost:4000",
   baseURL: "https://paneltool-stage.ejaraapis.xyz",
 });
 

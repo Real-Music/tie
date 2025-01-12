@@ -66,6 +66,7 @@ const seniorCellOptions = [
 const initState = {
   title: null,
   full_name: "",
+  phone_number: "",
   fellowship: null,
   senior_cell: null,
 };
@@ -157,6 +158,17 @@ function Registration() {
                         placeholder="John Deo"
                         value={state.full_name}
                         onChange={handleChange}
+                      />
+                    </Field>
+
+                    <Field required label="Phone Number">
+                      <Input
+                        type="number"
+                        name="phone_number"
+                        disabled={isPending}
+                        placeholder="678675824"
+                        onChange={handleChange}
+                        value={state.phone_number}
                       />
                     </Field>
 
