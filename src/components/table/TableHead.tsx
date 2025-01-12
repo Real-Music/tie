@@ -3,7 +3,14 @@ import { Table } from "@chakra-ui/react";
 export interface TableColumnsProps {
   key: string;
   name: string;
-  type: "date" | "datetime" | "string" | "number" | "status" | "percent";
+  type:
+    | "date"
+    | "datetime"
+    | "string"
+    | "number"
+    | "status"
+    | "percent"
+    | "action";
 }
 export interface TableHeadProps {
   columns: TableColumnsProps[];

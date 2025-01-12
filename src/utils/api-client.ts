@@ -24,6 +24,12 @@ class APIClient<R, D = unknown> {
       .then((res) => res.data);
   };
 
+  delete = (id: number, config?: AxiosRequestConfig) => {
+    return axiosInstance
+      .delete<R>(this.endpoint + '/' + id, config)
+      .then((res) => res.data);
+  };
+
   put = (data: D, config?: AxiosRequestConfig) => {
     return axiosInstance
       .put<R>(this.endpoint, data, config)

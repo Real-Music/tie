@@ -23,6 +23,7 @@ const columns: TableColumnsProps[] = [
   { key: "fellowship", name: "Fellowship", type: "string" },
   { key: "senior_cell", name: "Senior Cell", type: "string" },
   { key: "created_on", name: "Date Registered", type: "date" },
+  { key: "action", name: "Action", type: "action" },
 ];
 
 function Dashboard() {
@@ -33,7 +34,6 @@ function Dashboard() {
     size: 10,
   });
   const { data, isLoading, isFetching, refetch } = useUsers(query);
-
   const handleRegistration = () => navigate("/registration");
 
   return (
@@ -98,8 +98,8 @@ function Dashboard() {
           query={query}
           columns={columns}
           setQuery={setQuery}
-          isLoading={isLoading}
           data={data?.data.data}
+          isLoading={isLoading}
           isFetching={isFetching}
           totalSize={data?.data.totalSize || 0}
         />
