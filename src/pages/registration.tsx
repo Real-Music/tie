@@ -41,7 +41,7 @@ export const fellowshipOptions = [
   { value: "BLW Congo", label: "BLW Congo" },
 ];
 
-const seniorCellOptions = [
+export const seniorCellOptions = [
   { value: "Ambassadors", label: "Ambassadors" },
   { value: "Dominion Ambassadors 1", label: "Dominion Ambassadors 1" },
   { value: "Dominion Ambassadors 2", label: "Dominion Ambassadors 2" },

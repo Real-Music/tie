@@ -2,6 +2,7 @@ import { TableParamsProps } from "@/components/table/interfaces";
 
 export interface Query extends TableParamsProps {
 	fellowship: string;
+	senior_cell?: string;
 }
 
 export interface Option {

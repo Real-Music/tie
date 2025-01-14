@@ -12,7 +12,10 @@ import { Query } from "@/interface/User";
 import { Card, Center, Flex, Heading, HStack, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaSquarePlus } from "react-icons/fa6";
-import { fellowshipOptions as options } from "./registration";
+import {
+  fellowshipOptions as options,
+  seniorCellOptions,
+} from "./registration";
 import { useNavigate } from "react-router-dom";
 import { StatLabel, StatRoot, StatValueText } from "@/components/ui/stat";
 
@@ -32,6 +35,7 @@ function Dashboard() {
     fellowship: "all",
     page: 0,
     size: 10,
+    senior_cell: "all",
   });
   const { data, isLoading, isFetching, refetch } = useUsers(query);
   const handleRegistration = () => navigate("/registration");
@@ -67,22 +71,55 @@ function Dashboard() {
         </HStack>
 
         <Flex justifyContent="space-between" flexWrap="wrap-reverse" gap={4}>
-          <MenuRoot
-            onSelect={(d) => setQuery({ ...query, fellowship: d.value })}
-          >
-            <MenuTrigger asChild>
-              <Button variant="outline" size="sm" textTransform="capitalize">
-                {query.fellowship} Fellowship
-              </Button>
-            </MenuTrigger>
-            <MenuContent>
-              {[{ value: "all", label: "All" }, ...options].map((f) => (
-                <MenuItem key={f.value} value={f.value}>
-                  {f.label}
-                </MenuItem>
-              ))}
-            </MenuContent>
-          </MenuRoot>
+          <Stack direction="row" gap={4}>
+            <MenuRoot
+              onSelect={(d) => setQuery({ ...query, fellowship: d.value })}
+            >
+              <MenuTrigger asChild>
+                <Button
+                  size="sm"
+                  variant="solid"
+                  colorPalette="blue"
+                  textTransform="capitalize"
+                >
+                  {query.fellowship} Fellowship
+                </Button>
+              </MenuTrigger>
+              <MenuContent>
+                {[{ value: "all", label: "All" }, ...options].map((f) => (
+                  <MenuItem key={f.value} value={f.value}>
+                    {f.label}
+                  </MenuItem>
+                ))}
+              </MenuContent>
+            </MenuRoot>
+
+            {query.fellowship === "BLW Buea" && (
+              <MenuRoot
+                onSelect={(d) => setQuery({ ...query, senior_cell: d.value })}
+              >
+                <MenuTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="solid"
+                    colorPalette="blue"
+                    textTransform="capitalize"
+                  >
+                    {query.senior_cell} Senior Cell
+                  </Button>
+                </MenuTrigger>
+                <MenuContent>
+                  {[{ value: "all", label: "All" }, ...seniorCellOptions].map(
+                    (f) => (
+                      <MenuItem key={f.value} value={f.value}>
+                        {f.label}
+                      </MenuItem>
+                    )
+                  )}
+                </MenuContent>
+              </MenuRoot>
+            )}
+          </Stack>
 
           <Stack direction="row" gap={4}>
             <RefreshTable isFetching={isFetching} refetch={refetch} />
